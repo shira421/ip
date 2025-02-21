@@ -18,7 +18,6 @@ public class Ken {
         System.out.println(LINE + System.lineSeparator() + welcomeMsg + LINE);
         String input;
         Scanner in = new Scanner(System.in);
-        input = "";
         while (true) {
             input = in.nextLine();
             if (input.equalsIgnoreCase("bye")) {
