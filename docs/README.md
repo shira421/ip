@@ -1,6 +1,6 @@
-# Duke User Guide
+# Ken User Guide
 
-// Update the title above to match the actual product name
+This is a guide to using KEN.
 
 // Product screenshot goes here
 
