@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Ken {
     private static final String LINE = ("____________________________________________________________");
-    private static final String TWO_SPACE = "  ";
     private static final String ONE_SPACE = " ";
     public static void main(String[] args) {
         String logo = "  _  ________ _   _\n"
@@ -22,9 +21,13 @@ public class Ken {
         input = "";
         while (true) {
             input = in.nextLine();
-            if (input.equalsIgnoreCase("exit")) {
+            if (input.equalsIgnoreCase("bye")) {
                 System.out.println(exitMsg + LINE);
                 break;
+            } else {
+                System.out.println(LINE + System.lineSeparator()
+                        + ONE_SPACE + input + "\n"
+                        + LINE);
             }
         }
     }
