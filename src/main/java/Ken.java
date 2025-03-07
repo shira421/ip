@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class Ken {
-    private static final String LINE = ("____________________________________________________________");
-    private static final String ONE_SPACE = " ";
     public static void main(String[] args) {
         String logo = "  _  ________ _   _\n"
                 + " | |/ /  ____| \\ | |\n"
@@ -11,22 +9,30 @@ public class Ken {
                 + " | . \\| |____| |\\  |\n"
                 + " |_|\\_\\______|_| \\_|\n";
 
-        String welcomeMsg = (ONE_SPACE + "Hello I'm," + System.lineSeparator()
+        String welcomeMsg = ("Hello I'm," + System.lineSeparator()
                 + logo + System.lineSeparator()
-                + ONE_SPACE + "What can I do for you?\n");
-        String exitMsg = (ONE_SPACE + "Bye. Hope to see you again soon!\n");
-        System.out.println(LINE + System.lineSeparator() + welcomeMsg + LINE);
+                + "What can I do for you?\n");
+        String exitMsg = ("Bye. Hope to see you again soon!\n");
+        System.out.println(Constants.LINE + System.lineSeparator() + welcomeMsg + Constants.LINE);
+
         String input;
         Scanner in = new Scanner(System.in);
+        TaskList taskList = new TaskList();
+
         while (true) {
             input = in.nextLine();
-            if (input.equalsIgnoreCase("bye")) {
-                System.out.println(exitMsg + LINE);
+            switch (input.toLowerCase()) {
+            case "bye":
+                System.out.println(Constants.LINE
+                        + System.lineSeparator() + exitMsg
+                        + Constants.LINE);
+                return;
+            case "list":
+                taskList.listTasks();
                 break;
-            } else {
-                System.out.println(LINE + System.lineSeparator()
-                        + ONE_SPACE + input + "\n"
-                        + LINE);
+            default:
+                taskList.addTask(input);
+                break;
             }
         }
     }
