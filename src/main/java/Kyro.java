@@ -27,38 +27,69 @@ public class Kyro {
         System.out.println(LINE);
     }
 
+    public static void printTasks(Task[] tasks, int count) {
+        System.out.println(LINE);
+        if (count == 0) {
+            System.out.println(" Kyro is glad that you have no tasks!");
+        } else {
+            for (int i = 0; i < count; i++) {
+                System.out.printf(" %d. %s%n", i + 1, tasks[i].printString());
+            }
+        }
+        System.out.println(LINE);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String[] tasks = new String[MAX_TASKS];
+        Task[] tasks = new Task[MAX_TASKS];
         int taskCount = 0;
 
         printWelcome();
 
         while (true) {
             String input = scanner.nextLine().trim();
+            String[] parts = input.split(" ", 2);
+            String command = parts[0].toLowerCase();
 
-            if (input.equalsIgnoreCase("bye")) {
+            switch (command) {
+            case "bye":
                 printBye();
+                scanner.close();
+                return;
+
+            case "list":
+                printTasks(tasks, taskCount);
                 break;
-            } else if (input.equalsIgnoreCase("list")) {
+
+            case "mark":
+                int markIndex = Integer.parseInt(parts[1]) - 1;
+                tasks[markIndex].markDone();
                 System.out.println(LINE);
-                if (taskCount == 0) {
-                    System.out.println(" Kyro is glad that you have no tasks!");
-                } else {
-                    for (int i = 0; i < taskCount; i++) {
-                        System.out.printf(" %d. %s%n", i + 1, tasks[i]);
-                    }
-                }
+                System.out.println(" Nice! Kyro has marked this task as done:");
+                System.out.println("   " + tasks[markIndex].printString());
                 System.out.println(LINE);
-            } else if (input.isEmpty()) {
-                continue;
-            } else {
-                tasks[taskCount++] = input;
+                break;
+
+            case "unmark":
+                int unmarkIndex = Integer.parseInt(parts[1]) - 1;
+                tasks[unmarkIndex].unmark();
                 System.out.println(LINE);
-                System.out.println(" added: " + input);
+                System.out.println(" Ok, Kyro has marked this task as not done yet:");
+                System.out.println("   " + tasks[unmarkIndex].printString());
                 System.out.println(LINE);
+                break;
+
+            case "":
+                break;
+
+            default:
+                tasks[taskCount] = new Task(input);
+                System.out.println(LINE);
+                System.out.println(" added: " + tasks[taskCount].getDescription());
+                System.out.println(LINE);
+                taskCount++;
+                break;
             }
         }
-        scanner.close();
     }
 }
