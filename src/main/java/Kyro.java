@@ -39,6 +39,14 @@ public class Kyro {
         System.out.println(SINGLE_LINE);
     }
 
+    public static void printAddedTask(Task[] tasks, int count) {
+        System.out.println(SINGLE_LINE);
+        System.out.println(" Kyro has added:\n"
+                + "  " + tasks[count].toString() + "\n"
+                + " Now you have " + (count + 1) + " tasks in the list!");
+        System.out.println(SINGLE_LINE);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Task[] tasks = new Task[MAX_TASKS];
@@ -81,31 +89,22 @@ public class Kyro {
 
             case "todo":
                 tasks[taskCount] = new Todo(parts[1]);
-                System.out.println(SINGLE_LINE);
-                System.out.println(" Kyro has added:\n"
-                        + "  " + tasks[taskCount].toString() + "\n"
-                        + " Now you have " + taskCount++ + " tasks in the list!");
-                System.out.println(SINGLE_LINE);
+                printAddedTask(tasks, taskCount);
+                taskCount++;
                 break;
 
             case "deadline":
                 String[] deadlineTask = parts[1].split(" /by ", 2);
                 tasks[taskCount] = new Deadline(deadlineTask[0], deadlineTask[1]);
-                System.out.println(SINGLE_LINE);
-                System.out.println(" Kyro has added:\n"
-                        + "  " + tasks[taskCount].toString() + "\n"
-                        + " Now you have " + taskCount++ + " tasks in the list!");
-                System.out.println(SINGLE_LINE);
+                printAddedTask(tasks, taskCount);
+                taskCount++;
                 break;
 
             case "event":
                 String[] eventTask = parts[1].split(" /from | /to ", 3);
                 tasks[taskCount] = new Event(eventTask[0], eventTask[1], eventTask[2]);
-                System.out.println(SINGLE_LINE);
-                System.out.println(" Kyro has added:\n"
-                        + "  " + tasks[taskCount].toString() + "\n"
-                        + " Now you have " + taskCount++ + " tasks in the list!");
-                System.out.println(SINGLE_LINE);
+                printAddedTask(tasks, taskCount);
+                taskCount++;
                 break;
 
             case "":
