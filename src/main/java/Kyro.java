@@ -16,7 +16,7 @@ public class Kyro {
         System.out.println("Hello from\n" + logo);
 
         System.out.println(SINGLE_LINE);
-        System.out.println(" Hello! I'm Kyro, your personal assistant");
+        System.out.println(" Hello! I'm Kyro, your personal assistant.");
         System.out.println(" What can Kyro do for you?");
         System.out.println(SINGLE_LINE);
     }
