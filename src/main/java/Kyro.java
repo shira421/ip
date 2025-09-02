@@ -33,7 +33,7 @@ public class Kyro {
             System.out.println(" Kyro is glad that you have no tasks!");
         } else {
             for (int i = 0; i < count; i++) {
-                System.out.printf(" %d. %s%n", i + 1, tasks[i].printString());
+                System.out.printf(" %d. %s%n", i + 1, tasks[i].toString());
             }
         }
         System.out.println(SINGLE_LINE);
@@ -47,7 +47,7 @@ public class Kyro {
         printWelcome();
 
         while (true) {
-            String input = scanner.nextSINGLE_LINE().trim();
+            String input = scanner.nextLine().trim();
             String[] parts = input.split(" ", 2);
             String command = parts[0].toLowerCase();
 
@@ -66,7 +66,7 @@ public class Kyro {
                 tasks[markIndex].markDone();
                 System.out.println(SINGLE_LINE);
                 System.out.println(" Nice! Kyro has marked this task as done:");
-                System.out.println("   " + tasks[markIndex].printString());
+                System.out.println("   " + tasks[markIndex].toString());
                 System.out.println(SINGLE_LINE);
                 break;
 
@@ -75,7 +75,36 @@ public class Kyro {
                 tasks[unmarkIndex].unmark();
                 System.out.println(SINGLE_LINE);
                 System.out.println(" Ok, Kyro has marked this task as not done yet:");
-                System.out.println("   " + tasks[unmarkIndex].printString());
+                System.out.println("   " + tasks[unmarkIndex].toString());
+                System.out.println(SINGLE_LINE);
+                break;
+
+            case "todo":
+                tasks[taskCount] = new Todo(parts[1]);
+                System.out.println(SINGLE_LINE);
+                System.out.println(" Kyro has added:\n"
+                        + "  " + tasks[taskCount].toString() + "\n"
+                        + " Now you have " + taskCount++ + " tasks in the list!");
+                System.out.println(SINGLE_LINE);
+                break;
+
+            case "deadline":
+                String[] deadlineTask = parts[1].split(" /by ", 2);
+                tasks[taskCount] = new Deadline(deadlineTask[0], deadlineTask[1]);
+                System.out.println(SINGLE_LINE);
+                System.out.println(" Kyro has added:\n"
+                        + "  " + tasks[taskCount].toString() + "\n"
+                        + " Now you have " + taskCount++ + " tasks in the list!");
+                System.out.println(SINGLE_LINE);
+                break;
+
+            case "event":
+                String[] eventTask = parts[1].split(" /from | /to ", 3);
+                tasks[taskCount] = new Event(eventTask[0], eventTask[1], eventTask[2]);
+                System.out.println(SINGLE_LINE);
+                System.out.println(" Kyro has added:\n"
+                        + "  " + tasks[taskCount].toString() + "\n"
+                        + " Now you have " + taskCount++ + " tasks in the list!");
                 System.out.println(SINGLE_LINE);
                 break;
 
@@ -83,11 +112,6 @@ public class Kyro {
                 break;
 
             default:
-                tasks[taskCount] = new Task(input);
-                System.out.println(SINGLE_LINE);
-                System.out.println(" added: " + tasks[taskCount].getDescription());
-                System.out.println(SINGLE_LINE);
-                taskCount++;
                 break;
             }
         }
