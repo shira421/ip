@@ -7,12 +7,8 @@ public class Task {
         this.isDone = false;
     }
 
-    public void markDone() {
-        this.isDone = true;
-    }
-
-    public void unmark() {
-        this.isDone = false;
+    public void setDone(boolean isDone) {
+        this.isDone = isDone;
     }
 
     public boolean isDone() {

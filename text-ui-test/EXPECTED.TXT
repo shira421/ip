@@ -7,7 +7,7 @@ Hello from
         \/\/
 
 ____________________________________________________________
- Hello! I'm Kyro, your personal assistant
+ Hello! I'm Kyro, your personal assistant.
  What can Kyro do for you?
 ____________________________________________________________
 ____________________________________________________________

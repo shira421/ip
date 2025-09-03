@@ -71,7 +71,7 @@ public class Kyro {
 
             case "mark":
                 int markIndex = Integer.parseInt(parts[1]) - 1;
-                tasks[markIndex].markDone();
+                tasks[markIndex].setDone(true);
                 System.out.println(SINGLE_LINE);
                 System.out.println(" Nice! Kyro has marked this task as done:");
                 System.out.println("   " + tasks[markIndex].toString());
@@ -80,7 +80,7 @@ public class Kyro {
 
             case "unmark":
                 int unmarkIndex = Integer.parseInt(parts[1]) - 1;
-                tasks[unmarkIndex].unmark();
+                tasks[unmarkIndex].setDone(false);
                 System.out.println(SINGLE_LINE);
                 System.out.println(" Ok, Kyro has marked this task as not done yet:");
                 System.out.println("   " + tasks[unmarkIndex].toString());
@@ -105,9 +105,6 @@ public class Kyro {
                 tasks[taskCount] = new Event(eventTask[0], eventTask[1], eventTask[2]);
                 printAddedTask(tasks, taskCount);
                 taskCount++;
-                break;
-
-            case "":
                 break;
 
             default:
