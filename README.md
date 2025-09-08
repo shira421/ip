@@ -33,16 +33,16 @@ Prerequisites: JDK 17, update Intellij to the most recent version.
 Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle)
 expect to find Java files.
 
-###
+## Commands
 
-Commands
+List of User Commands
 
    ```
-   todo <description> // Add a todo Task
-   deadline <description> /by <time> // Add a deadline Task
-   event <description> /from <start> /to <end> // Add an event Task
-   list // List out all tasks
-   mark <task number> // Mark task by number
-   unmark <task number> // Unmark task by number
-   bye // End Session
+   todo <description>                          --> Add a todo Task
+   deadline <description> /by <time>           --> Add a deadline Task
+   event <description> /from <start> /to <end> --> Add an event Task
+   list                                        --> List out all tasks
+   mark <task number>                          --> Mark task by number
+   unmark <task number>                        --> Unmark task by number
+   bye                                         --> End Session
    ```
