@@ -1,4 +1,4 @@
-package exceptions;
+package kyro.exceptions;
 
 public class InvalidTaskNumberException extends KyroException {
     public InvalidTaskNumberException() {

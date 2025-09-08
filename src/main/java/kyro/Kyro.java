@@ -1,6 +1,9 @@
+package kyro;
+
 import java.util.Scanner;
 
-import exceptions.*;
+import kyro.tasks.*;
+import kyro.exceptions.*;
 
 public class Kyro {
     private static final Printer Printer = new Printer();

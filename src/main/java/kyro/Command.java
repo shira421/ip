@@ -1,3 +1,5 @@
+package kyro;
+
 public class Command {
     private final CommandList type;
     private final String arguments;

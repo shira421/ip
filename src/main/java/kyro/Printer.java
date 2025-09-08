@@ -1,3 +1,7 @@
+package kyro;
+
+import kyro.tasks.*;
+
 public class Printer {
     private static final String SINGLE_LINE = "____________________________________________________________";
 

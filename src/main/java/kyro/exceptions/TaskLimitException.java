@@ -1,4 +1,4 @@
-package exceptions;
+package kyro.exceptions;
 
 public class TaskLimitException extends KyroException {
     public TaskLimitException(int max) {

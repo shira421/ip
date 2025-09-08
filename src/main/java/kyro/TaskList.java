@@ -1,5 +1,7 @@
-import exceptions.InvalidTaskNumberException;
-import exceptions.TaskLimitException;
+package kyro;
+
+import kyro.tasks.*;
+import kyro.exceptions.*;
 
 public class TaskList {
     private static final int MAX_TASKS = 100;

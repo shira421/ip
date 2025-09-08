@@ -1,4 +1,4 @@
-package exceptions;
+package kyro.exceptions;
 
 public class KyroException extends Exception {
     public KyroException(String message) {

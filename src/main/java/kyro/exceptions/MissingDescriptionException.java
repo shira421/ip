@@ -1,4 +1,4 @@
-package exceptions;
+package kyro.exceptions;
 
 public class MissingDescriptionException extends KyroException {
     public MissingDescriptionException(String type) {

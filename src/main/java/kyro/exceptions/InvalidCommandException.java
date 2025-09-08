@@ -1,4 +1,4 @@
-package exceptions;
+package kyro.exceptions;
 
 public class InvalidCommandException extends KyroException {
     public InvalidCommandException() {
