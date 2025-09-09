@@ -3,38 +3,38 @@ package kyro;
 import kyro.tasks.*;
 import kyro.exceptions.*;
 
+import java.util.ArrayList;
+
 public class TaskList {
-    private static final int MAX_TASKS = 100;
-    private final Task[] tasks;
-    private int size;
+    private final ArrayList<Task> tasks;
 
     public TaskList() {
-        tasks = new Task[MAX_TASKS];
-        size = 0;
+        tasks = new ArrayList<>();
     }
 
-    public void add(Task task) throws TaskLimitException {
-        if (size >= MAX_TASKS) {
-            throw new TaskLimitException(MAX_TASKS);
+    public void add(Task task) {
+        tasks.add(task);
+    }
+
+    public void remove(int index) throws InvalidTaskNumberException {
+        if (index < 0 || index >= tasks.size()) {
+            throw new InvalidTaskNumberException();
         }
-        tasks[size] = task;
-        size++;
+        tasks.remove(index);
     }
 
     public Task get(int index) throws InvalidTaskNumberException {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= tasks.size()) {
             throw new InvalidTaskNumberException();
         }
-        return tasks[index];
+        return tasks.get(index);
     }
 
     public int size() {
-        return size;
+        return tasks.size();
     }
 
-    public Task[] getAll() {
-        Task[] copy = new Task[size];
-        System.arraycopy(tasks, 0, copy, 0, size);
-        return copy;
+    public ArrayList<Task> getTaskList() {
+        return new ArrayList<>(tasks);
     }
 }

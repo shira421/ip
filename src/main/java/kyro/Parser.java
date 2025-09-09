@@ -44,6 +44,12 @@ public class Parser {
             }
             return new Command(CommandList.EVENT, parts[1]);
 
+        case "delete":
+            if (parts.length < 2) {
+                throw new KyroException("Kyro thinks you should provide a task number to delete.");
+            }
+            return new Command(CommandList.DELETE, parts[1]);
+
         default:
             throw new InvalidCommandException();
         }

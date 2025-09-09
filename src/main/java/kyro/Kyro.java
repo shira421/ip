@@ -24,7 +24,7 @@ public class Kyro {
                     return;
 
                 case LIST:
-                    Printer.showTasks(tasks.getAll());
+                    Printer.showTasks(tasks.getTaskList());
                     break;
 
                 case MARK:
@@ -59,6 +59,13 @@ public class Kyro {
                     Task event = new Event(eventParts[0].trim(), eventParts[1].trim(), eventParts[2].trim());
                     tasks.add(event);
                     Printer.showAdded(event, tasks.size());
+                    break;
+
+                case DELETE:
+                    int deleteIndex = Integer.parseInt(command.getArguments()) - 1;
+                    Task deleteTask = tasks.get(deleteIndex);
+                    tasks.remove(deleteIndex);
+                    Printer.showDelete(deleteTask, tasks.size());
                     break;
                 }
             } catch (KyroException e) {
