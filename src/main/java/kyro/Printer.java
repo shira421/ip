@@ -2,6 +2,8 @@ package kyro;
 
 import kyro.tasks.*;
 
+import java.util.ArrayList;
+
 public class Printer {
     private static final String SINGLE_LINE = "____________________________________________________________";
 
@@ -29,13 +31,13 @@ public class Printer {
         showLine();
     }
 
-    public void showTasks(Task[] tasks) {
+    public void showTasks(ArrayList<Task> tasks) {
         showLine();
-        if (tasks.length == 0) {
+        if (tasks.isEmpty()) {
             System.out.println(" Kyro is glad that you have no tasks!");
         } else {
-            for (int i = 0; i < tasks.length; i++) {
-                System.out.printf(" %d. %s%n", i + 1, tasks[i]);
+            for (int i = 0; i < tasks.size(); i++) {
+                System.out.printf(" %d. %s%n", i + 1, tasks.get(i));
             }
         }
         showLine();
@@ -59,6 +61,13 @@ public class Printer {
         showLine();
         System.out.println(" Ok, Kyro has marked this task as not done yet:");
         System.out.println("   " + task);
+        showLine();
+    }
+
+    public void showDelete(Task task, int count) {
+        showLine();
+        System.out.println(" Kyro has deleted:\n  " + task);
+        System.out.println(" Now you have " + count + " tasks in the list!");
         showLine();
     }
 
