@@ -1,6 +1,6 @@
 # Kyro project template
 
-_Kyro_ is a chatbot designed to assist you in your daily life.
+_Kyro_ is a scheduler and chatbot designed to assist you in your daily life.
 
 Its name is inspired by the Greek word _Kyros_, meaning "master". Given below are instructions on how to use it.
 
