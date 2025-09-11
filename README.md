@@ -45,5 +45,6 @@ User Commands
    list                                        --> List out all tasks
    mark <task number>                          --> Mark task by number
    unmark <task number>                        --> Unmark task by number
+   delete <task number>                        --> Delete task by number
    bye                                         --> End Session
    ```

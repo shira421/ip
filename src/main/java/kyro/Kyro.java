@@ -1,13 +1,14 @@
 package kyro;
 
-import java.util.Scanner;
-
 import kyro.tasks.*;
 import kyro.exceptions.*;
 
+import java.util.Scanner;
+
 public class Kyro {
     private static final Printer Printer = new Printer();
-    private static final TaskList tasks = new TaskList();
+    private static final Storage storage = new Storage("./data/kyro.txt");
+    private static final TaskList tasks = storage.load();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -31,6 +32,7 @@ public class Kyro {
                     int markIndex = Integer.parseInt(command.getArguments()) - 1;
                     Task markTask = tasks.get(markIndex);
                     markTask.setDone(true);
+                    storage.save(tasks);
                     Printer.showMark(markTask);
                     break;
 
@@ -38,12 +40,14 @@ public class Kyro {
                     int unmarkIndex = Integer.parseInt(command.getArguments()) - 1;
                     Task unmarkTask = tasks.get(unmarkIndex);
                     unmarkTask.setDone(false);
+                    storage.save(tasks);
                     Printer.showUnmark(unmarkTask);
                     break;
 
                 case TODO:
                     Task todo = new Todo(command.getArguments().trim());
-                    tasks.add(todo);  // may throw TaskLimitException
+                    tasks.add(todo);
+                    storage.save(tasks);
                     Printer.showAdded(todo, tasks.size());
                     break;
 
@@ -51,6 +55,7 @@ public class Kyro {
                     String[] deadlineParts = command.getArguments().split(" /by ", 2);
                     Task deadline = new Deadline(deadlineParts[0].trim(), deadlineParts[1].trim());
                     tasks.add(deadline);
+                    storage.save(tasks);
                     Printer.showAdded(deadline, tasks.size());
                     break;
 
@@ -58,6 +63,7 @@ public class Kyro {
                     String[] eventParts = command.getArguments().split(" /from | /to ", 3);
                     Task event = new Event(eventParts[0].trim(), eventParts[1].trim(), eventParts[2].trim());
                     tasks.add(event);
+                    storage.save(tasks);
                     Printer.showAdded(event, tasks.size());
                     break;
 
@@ -65,6 +71,7 @@ public class Kyro {
                     int deleteIndex = Integer.parseInt(command.getArguments()) - 1;
                     Task deleteTask = tasks.get(deleteIndex);
                     tasks.remove(deleteIndex);
+                    storage.save(tasks);
                     Printer.showDelete(deleteTask, tasks.size());
                     break;
                 }
