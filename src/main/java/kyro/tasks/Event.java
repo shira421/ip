@@ -16,4 +16,9 @@ public class Event extends Task {
                 " (from" +
                 ": " + from + " to: " + to + ")";
     }
+
+    @Override
+    public String toSave() {
+        return "E | " + super.toSave() + " | " + from + " | " + to;
+    }
 }
