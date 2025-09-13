@@ -7,7 +7,7 @@ group = 'cs2113'
 version = '1.0'
 
 application {
-    mainClass = 'kyro.Kyro'
+    mainClass = 'kyro.base.Kyro'
 }
 
 repositories {

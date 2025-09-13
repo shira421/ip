@@ -14,7 +14,7 @@ IF ERRORLEVEL 1 (
 )
 
 REM run the program using fully qualified class name (package kyro)
-java -classpath ..\bin kyro.Kyro < input.txt > ACTUAL.TXT
+java -classpath ..\bin kyro.base.Kyro < input.txt > ACTUAL.TXT
 
 REM compare the output to the expected output, ignoring line ending differences
 fc /w ACTUAL.TXT EXPECTED.TXT > NUL

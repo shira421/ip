@@ -1,4 +1,4 @@
-package kyro;
+package kyro.base;
 
 import kyro.exceptions.*;
 
