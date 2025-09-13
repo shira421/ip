@@ -1,4 +1,4 @@
-# Kyro project template
+# Kyro
 
 _Kyro_ is a scheduler and chatbot designed to assist you in your daily life.
 
