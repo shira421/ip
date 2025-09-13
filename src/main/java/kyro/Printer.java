@@ -61,6 +61,5 @@ public class Printer {
 
     public void showError(String message) {
         System.out.println(" " + message);
-
     }
 }

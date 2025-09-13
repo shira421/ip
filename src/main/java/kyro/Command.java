@@ -3,6 +3,10 @@ package kyro;
 import kyro.tasks.*;
 import kyro.exceptions.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+
 public class Command {
     private final CommandList type;
     private final String arguments;
@@ -48,7 +52,7 @@ public class Command {
 
         case TODO:
             if (arguments.trim().isEmpty()) {
-                throw new KyroException("The description of a todo cannot be empty!");
+                throw new KyroException("Todo format must be: <desc>");
             }
             Task todo = new Todo(arguments.trim());
             tasks.add(todo);
@@ -59,7 +63,7 @@ public class Command {
         case DEADLINE:
             String[] deadlineParts = arguments.split(" /by ", 2);
             if (deadlineParts.length < 2) {
-                throw new KyroException("Deadline format must be: <desc> /by <time>");
+                throw new KyroException("Deadline format must be: <desc> /by <yyyy-MM-dd HHmm>");
             }
             Task deadline = new Deadline(deadlineParts[0].trim(), deadlineParts[1].trim());
             tasks.add(deadline);
@@ -70,7 +74,7 @@ public class Command {
         case EVENT:
             String[] eventParts = arguments.split(" /from | /to ", 3);
             if (eventParts.length < 3) {
-                throw new KyroException("Event format must be: <desc> /from <start> /to <end>");
+                throw new KyroException("Event format must be: <desc> /from <yyyy-MM-dd HHmm> /to <yyyy-MM-dd HHmm>");
             }
             Task event = new Event(eventParts[0].trim(), eventParts[1].trim(), eventParts[2].trim());
             tasks.add(event);
@@ -84,6 +88,32 @@ public class Command {
             tasks.remove(deleteIndex);
             storage.save(tasks);
             printer.showDelete(deleteTask, tasks.size());
+            break;
+
+        case FILTER:
+            try {
+                LocalDate date = LocalDate.parse(arguments);
+                ArrayList<Task> matching = new ArrayList<>();
+
+                for (Task task : tasks.getTaskList()) {
+                    if (task instanceof Deadline d && d.getBy().toLocalDate().equals(date)) {
+                        matching.add(d);
+                    }
+                    if (task instanceof Event e &&
+                            (e.getFrom().toLocalDate().equals(date) || e.getTo().toLocalDate().equals(date))) {
+                        matching.add(e);
+                    }
+                }
+
+                if (matching.isEmpty()) {
+                    printer.showError("Kyro found no tasks on " + date);
+                } else {
+                    printer.showTasks(matching);
+                }
+
+            } catch (DateTimeParseException e) {
+                throw new KyroException("Date format must be: <yyyy-MM-dd HHmm>");
+            }
             break;
 
         default:

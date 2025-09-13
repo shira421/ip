@@ -39,12 +39,13 @@ expect to find Java files.
 User Commands
 
    ```
-   todo <description>                          --> Add a todo Task
-   deadline <description> /by <time>           --> Add a deadline Task
-   event <description> /from <start> /to <end> --> Add an event Task
-   list                                        --> List out all tasks
-   mark <task number>                          --> Mark task by number
-   unmark <task number>                        --> Unmark task by number
-   delete <task number>                        --> Delete task by number
-   bye                                         --> End Session
+   todo <description>                                      --> Add a todo Task
+   deadline <description> /by <yyyy-MM-dd>                 --> Add a deadline Task
+   event <description> /from <yyyy-MM-dd> /to <yyyy-MM-dd> --> Add an event Task
+   list                                                    --> List out all tasks
+   mark <task number>                                      --> Mark task by number
+   unmark <task number>                                    --> Unmark task by number
+   delete <task number>                                    --> Delete task by number
+   filter <yyyy-MM-dd>                                     --> Filter by date
+   bye                                                     --> End Session
    ```
