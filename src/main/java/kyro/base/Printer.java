@@ -5,7 +5,7 @@ import kyro.tasks.*;
 import java.util.ArrayList;
 
 /**
- * Handles all user-facing output in the Kyro application.
+ * Handles all print output in the Kyro application.
  * <p>
  * Provides helper methods for printing messages, errors, and task lists.
  */
