@@ -47,5 +47,6 @@ User Commands
    unmark <task number>                                    --> Unmark task by number
    delete <task number>                                    --> Delete task by number
    filter <yyyy-MM-dd>                                     --> Filter by date
+   find <keyword>                                          --> Find by keyword
    bye                                                     --> End Session
    ```

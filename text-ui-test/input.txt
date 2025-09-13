@@ -7,6 +7,7 @@ list
 unmark 2
 list
 filter 2019-12-01
+find book
 delete 2
 list
 bye

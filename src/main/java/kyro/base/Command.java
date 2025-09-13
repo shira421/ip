@@ -93,26 +93,38 @@ public class Command {
         case FILTER:
             try {
                 LocalDate date = LocalDate.parse(arguments);
-                ArrayList<Task> matching = new ArrayList<>();
-
+                ArrayList<Task> matchingDates = new ArrayList<>();
                 for (Task task : tasks.getTaskList()) {
                     if (task instanceof Deadline d && d.getBy().toLocalDate().equals(date)) {
-                        matching.add(d);
+                        matchingDates.add(d);
                     }
                     if (task instanceof Event e &&
                             (e.getFrom().toLocalDate().equals(date) || e.getTo().toLocalDate().equals(date))) {
-                        matching.add(e);
+                        matchingDates.add(e);
                     }
                 }
-
-                if (matching.isEmpty()) {
-                    printer.showError("Kyro found no tasks on " + date);
+                if (matchingDates.isEmpty()) {
+                    printer.showError("Kyro found no tasks on: " + date);
                 } else {
-                    printer.showTasks(matching);
+                    printer.showTasks(matchingDates);
                 }
-
             } catch (DateTimeParseException e) {
                 throw new KyroException("Date format must be: <yyyy-MM-dd HHmm>");
+            }
+            break;
+
+        case FIND:
+            String keyword = arguments.toLowerCase();
+            ArrayList<Task> matchingTasks = new ArrayList<>();
+            for (Task task : tasks.getTaskList()) {
+                if (task.getDescription().toLowerCase().contains(keyword)) {
+                    matchingTasks.add(task);
+                }
+            }
+            if (matchingTasks.isEmpty()) {
+                printer.showError("Kyro found no tasks matching: " + keyword);
+            } else {
+                printer.showFind(matchingTasks);
             }
             break;
 

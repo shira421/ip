@@ -59,6 +59,13 @@ public class Printer {
         System.out.println(" Now you have " + count + " tasks in the list!");
     }
 
+    public void showFind(ArrayList<Task> matchingTasks) {
+        System.out.println(" Here are the matching tasks in your schedule:");
+        for (int i = 0; i < matchingTasks.size(); i++) {
+            System.out.printf(" %d. %s%n", i + 1, matchingTasks.get(i));
+        }
+    }
+
     public void showError(String message) {
         System.out.println(" " + message);
     }

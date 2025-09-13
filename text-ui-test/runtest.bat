@@ -7,7 +7,7 @@ REM delete output from previous run
 if exist ACTUAL.TXT del ACTUAL.TXT
 
 REM compile all Java files from src/main/java (including subfolders) into bin
-javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\kyro\*.java ..\src\main\java\kyro\exceptions\*.java ..\src\main\java\kyro\tasks\*.java
+javac -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\kyro\base\*.java ..\src\main\java\kyro\exceptions\*.java ..\src\main\java\kyro\tasks\*.java
 IF ERRORLEVEL 1 (
     echo ********** BUILD FAILURE **********
     exit /b 1

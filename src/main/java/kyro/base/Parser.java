@@ -56,6 +56,12 @@ public class Parser {
             }
             return new Command(CommandList.FILTER, parts[1]);
 
+        case "find":
+            if (parts.length < 2 || parts[1].trim().isEmpty()) {
+                throw new KyroException("Kyro thinks you should follow the format: find <description>");
+            }
+            return new Command(CommandList.FIND, parts[1]);
+
         default:
             throw new InvalidCommandException();
         }

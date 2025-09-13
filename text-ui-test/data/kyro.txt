@@ -1,2 +1,0 @@
-T | 0 | read book
-E | 0 | project meeting | 2019-12-01 1400 | 2019-12-01 1600
