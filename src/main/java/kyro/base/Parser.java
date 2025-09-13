@@ -2,7 +2,22 @@ package kyro.base;
 
 import kyro.exceptions.*;
 
+/**
+ * Parses raw user input into executable commands.
+ * <p>
+ * This class handles splitting user input strings and mapping them
+ * to their corresponding {@link Command} implementations.
+ */
 public class Parser {
+
+    /**
+     * Parses the provided input string and returns a {@link Command}.
+     *
+     * @param input User input string to be parsed.
+     * @return Command object representing the parsed user input.
+     * @throws KyroException If the input does not match any known command
+     *                       or is invalid.
+     */
     public static Command parse(String input) throws KyroException {
         String[] parts = input.trim().split(" ", 2);
         String command = parts[0].toLowerCase();
@@ -28,7 +43,7 @@ public class Parser {
 
         case "todo":
             if (parts.length < 2 || parts[1].trim().isEmpty()) {
-                throw new MissingDescriptionException("todo");
+                throw new KyroException("Kyro thinks you should follow the format: todo <description>");
             }
             return new Command(CommandList.TODO, parts[1]);
 

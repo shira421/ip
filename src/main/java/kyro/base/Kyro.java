@@ -4,12 +4,24 @@ import kyro.exceptions.*;
 
 import java.util.Scanner;
 
+/**
+ * Main entry point for the Kyro application.
+ * <p>
+ * This class initializes the task list, storage, and printer, and
+ * coordinates user input parsing and command execution.
+ */
 public class Kyro {
+
     private final Printer printer;
     private final Storage storage;
     private final TaskList tasks;
     private final Scanner scanner;
 
+    /**
+     * Constructs a new Kyro instance.
+     *
+     * @param filePath File path used for loading and saving tasks.
+     */
     public Kyro(String filePath) {
         printer = new Printer();
         storage = new Storage(filePath);
@@ -17,6 +29,12 @@ public class Kyro {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Runs the main loop of the Kyro application.
+     * <p>
+     * Continuously reads user input, parses it into commands,
+     * and executes them until command BYE is given.
+     */
     public void run() {
         printer.showWelcome();
         boolean isExit = false;
@@ -37,6 +55,11 @@ public class Kyro {
         }
     }
 
+    /**
+     * Entry point of the program.
+     *
+     * @param args Command line arguments.
+     */
     public static void main(String[] args) {
         new Kyro("./data/kyro.txt").run();
     }

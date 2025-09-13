@@ -7,7 +7,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
+/**
+ * Abstract base type for all executable commands in Kyro.
+ * <p>
+ * Subclasses of {@code Command} implement specific user actions
+ * from CommandList.
+ */
 public class Command {
+
     private final CommandList type;
     private final String arguments;
 
@@ -24,6 +31,15 @@ public class Command {
         return type == CommandList.BYE;
     }
 
+    /**
+     * Handles the logic for given command input.
+     *
+     * @param tasks   The task list to operate on.
+     * @param printer The printer used for output messages.
+     * @param storage The storage handler used to save data.
+     * @throws KyroException If execution fails due to invalid input
+     *                       or storage errors.
+     */
     public void execute(TaskList tasks, Printer printer, Storage storage) throws KyroException {
         switch (type) {
         case BYE:

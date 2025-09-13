@@ -4,7 +4,13 @@ import kyro.tasks.*;
 
 import java.util.ArrayList;
 
+/**
+ * Handles all user-facing output in the Kyro application.
+ * <p>
+ * Provides helper methods for printing messages, errors, and task lists.
+ */
 public class Printer {
+
     private static final String SINGLE_LINE = "____________________________________________________________";
 
     public void showLine() {

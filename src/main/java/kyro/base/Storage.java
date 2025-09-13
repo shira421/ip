@@ -5,15 +5,32 @@ import kyro.tasks.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Handles loading and saving tasks to storage.
+ * <p>
+ * Tasks are serialized to a file and restored when the program restarts.
+ */
 public class Storage {
+
     private final String filePath;
 
+    /**
+     * Constructs a new {@code Storage} with the given file path.
+     *
+     * @param filePath The path of the file where tasks are saved and loaded.
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Loads tasks from the storage file.
+     *
+     * @return A list of tasks restored from storage.
+     */
     public TaskList load() {
         TaskList tasks = new TaskList();
         File file = new File(filePath);
@@ -41,6 +58,11 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Saves the given task list to the storage file.
+     *
+     * @param tasks The list of tasks to save.
+     */
     public void save(TaskList tasks) {
         try {
             FileWriter fw = new FileWriter(filePath);
@@ -54,6 +76,11 @@ public class Storage {
         }
     }
 
+    /**
+     * Reads a task entry and generates a {@link Task} object.
+     *
+     * @param line The task entry to be parsed.
+     */
     private Task parseTask(String line) {
         String[] parts = line.split(" \\| ");
         String type = parts[0];
