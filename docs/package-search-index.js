@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"kyro.base"},{"l":"kyro.exceptions"},{"l":"kyro.tasks"}];updateSearchResults();
