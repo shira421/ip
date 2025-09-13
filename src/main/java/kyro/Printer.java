@@ -26,13 +26,10 @@ public class Printer {
     }
 
     public void showBye() {
-        showLine();
         System.out.println(" Bye. Kyro hopes to see you again soon!");
-        showLine();
     }
 
     public void showTasks(ArrayList<Task> tasks) {
-        showLine();
         if (tasks.isEmpty()) {
             System.out.println(" Kyro is glad that you have no tasks!");
         } else {
@@ -40,40 +37,30 @@ public class Printer {
                 System.out.printf(" %d. %s%n", i + 1, tasks.get(i));
             }
         }
-        showLine();
     }
 
     public void showAdded(Task task, int count) {
-        showLine();
         System.out.println(" Kyro has added:\n  " + task);
         System.out.println(" Now you have " + count + " tasks in the list!");
-        showLine();
     }
 
     public void showMark(Task task) {
-        showLine();
         System.out.println(" Nice! Kyro has marked this task as done:");
         System.out.println("   " + task);
-        showLine();
     }
 
     public void showUnmark(Task task) {
-        showLine();
         System.out.println(" Ok, Kyro has marked this task as not done yet:");
         System.out.println("   " + task);
-        showLine();
     }
 
     public void showDelete(Task task, int count) {
-        showLine();
         System.out.println(" Kyro has deleted:\n  " + task);
         System.out.println(" Now you have " + count + " tasks in the list!");
-        showLine();
     }
 
     public void showError(String message) {
-        showLine();
         System.out.println(" " + message);
-        showLine();
+
     }
 }
