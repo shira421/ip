@@ -49,13 +49,13 @@ public class Parser {
 
         case "deadline":
             if (parts.length < 2 || !parts[1].contains(" /by ")) {
-                throw new KyroException("Kyro thinks you should follow the format: deadline <description> /by <yyyy-MM-dd>");
+                throw new KyroException("Kyro thinks you should follow the format: deadline <description> /by <yyyy-MM-dd HHmm>");
             }
             return new Command(CommandList.DEADLINE, parts[1]);
 
         case "event":
             if (parts.length < 2 || !parts[1].contains(" /from ") || !parts[1].contains(" /to ")) {
-                throw new KyroException("Kyro thinks you should follow the format: event <description> /from <yyyy-MM-dd> /to <yyyy-MM-dd>");
+                throw new KyroException("Kyro thinks you should follow the format: event <description> /from <yyyy-MM-dd HHmm> /to <yyyy-MM-dd HHmm>");
             }
             return new Command(CommandList.EVENT, parts[1]);
 

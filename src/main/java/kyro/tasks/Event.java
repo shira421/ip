@@ -1,7 +1,10 @@
 package kyro.tasks;
 
+import kyro.exceptions.KyroException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Represents a task that spans a period of time.
@@ -20,10 +23,14 @@ public class Event extends Task {
      * @param from        The start time in {@code yyyy-MM-dd HHmm} format.
      * @param to          The end time in {@code yyyy-MM-dd HHmm} format.
      */
-    public Event(String description, String from, String to) {
+    public Event(String description, String from, String to) throws KyroException {
         super(description);
-        this.from = LocalDateTime.parse(from, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
-        this.to = LocalDateTime.parse(to, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+        try {
+            this.from = LocalDateTime.parse(from, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+            this.to = LocalDateTime.parse(to, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+        } catch (DateTimeParseException e) {
+            throw new KyroException("Date format must be: <yyyy-MM-dd HHmm>");
+        }
     }
 
     /**

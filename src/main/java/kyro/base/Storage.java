@@ -1,11 +1,11 @@
 package kyro.base;
 
+import kyro.exceptions.KyroException;
 import kyro.tasks.*;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -81,7 +81,7 @@ public class Storage {
      *
      * @param line The task entry to be parsed.
      */
-    private Task parseTask(String line) {
+    private Task parseTask(String line) throws KyroException {
         String[] parts = line.split(" \\| ");
         String type = parts[0];
         boolean isDone = parts[1].equals("1");

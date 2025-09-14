@@ -1,7 +1,10 @@
 package kyro.tasks;
 
+import kyro.exceptions.KyroException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Represents a task with a deadline.
@@ -19,9 +22,13 @@ public class Deadline extends Task {
      * @param description The description of the task.
      * @param by          The deadline in {@code yyyy-MM-dd HHmm} format.
      */
-    public Deadline(String description, String by) {
+    public Deadline(String description, String by) throws KyroException {
         super(description);
-        this.by = LocalDateTime.parse(by, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+        try {
+            this.by = LocalDateTime.parse(by, DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"));
+        } catch (DateTimeParseException e) {
+            throw new KyroException("Date format must be: <yyyy-MM-dd HHmm>");
+        }
     }
 
     /**

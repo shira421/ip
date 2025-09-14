@@ -40,14 +40,14 @@ expect to find Java files.
 User Commands
 
    ```
-   todo <description>                                      --> Add a todo Task
-   deadline <description> /by <yyyy-MM-dd>                 --> Add a deadline Task
-   event <description> /from <yyyy-MM-dd> /to <yyyy-MM-dd> --> Add an event Task
-   list                                                    --> List out all tasks
-   mark <task number>                                      --> Mark task by number
-   unmark <task number>                                    --> Unmark task by number
-   delete <task number>                                    --> Delete task by number
-   filter <yyyy-MM-dd>                                     --> Filter by date
-   find <keyword>                                          --> Find by keyword
-   bye                                                     --> End Session
+   todo <description>                                                --> Add a todo Task
+   deadline <description> /by <yyyy-MM-dd>                           --> Add a deadline Task
+   event <description> /from <yyyy-MM-dd HHmm> /to <yyyy-MM-dd HHmm> --> Add an event Task
+   list                                                              --> List out all tasks
+   mark <task number>                                                --> Mark task by number
+   unmark <task number>                                              --> Unmark task by number
+   delete <task number>                                              --> Delete task by number
+   filter <yyyy-MM-dd>                                               --> Filter by date
+   find <keyword>                                                    --> Find by keyword
+   bye                                                               --> End Session
    ```

@@ -125,7 +125,7 @@ public class Command {
                     printer.showTasks(matchingDates);
                 }
             } catch (DateTimeParseException e) {
-                throw new KyroException("Date format must be: <yyyy-MM-dd HHmm>");
+                throw new KyroException("Date format must be: <yyyy-MM-dd>");
             }
             break;
 
