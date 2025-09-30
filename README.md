@@ -4,6 +4,13 @@ _Kyro_ is a scheduler and chatbot designed to assist you in your daily life.
 
 Its name is inspired by the Greek word _Kyros_, meaning "master". Given below are instructions on how to use it.
 
+## Quick Start
+
+1. Ensure you have Java 17 installed on your computer.
+1. Download the latest ip.jar file from `Releases`.
+1. As the program creates save files in the same folder, you are recommended to create a separate directory for Kyro.
+1. Run the program using the command `java -jar <jar-release-name>.jar`
+
 ## Setting up in Intellij
 
 Prerequisites: JDK 17, update Intellij to the most recent version.
@@ -22,13 +29,14 @@ Prerequisites: JDK 17, update Intellij to the most recent version.
    editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the
    below as the output:
    ```
-   Hello from
+   ************************ HELLO FROM ************************
     ____  __.                      
    |    |/ _|___.__._______  ____  
-   |      < <   |  |\_  __ \/  _ \ 
+   |      < <   |  |\_  __ \/  _ \
    |    |  \ \___  | |  | \(  <_> )
-   |____|__ \/ ____| |__|   \____/ 
-        \/\/                    
+   |____|__ \/ ____| |__|   \____/
+   \/\/
+   ____________________________________________________________                 
    ```
 
 **Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move
@@ -36,8 +44,6 @@ Java files to another folder outside of this folder path), as this is the defaul
 expect to find Java files.
 
 ## Commands
-
-User Commands
 
    ```
    ************************* COMMANDS *************************
