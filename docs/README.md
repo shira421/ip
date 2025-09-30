@@ -9,9 +9,9 @@ Its name is inspired by the Greek word _Kyros_, meaning "master". Given below ar
 ## Quick Start
 
 1. Ensure you have Java 17 installed on your computer.
-1. Download the latest ip.jar file from `Releases`.
+1. Download the latest .jar file from `Releases`.
 1. As the program creates save files in the same folder, you are recommended to create a separate directory for Kyro.
-1. Run the program using the command `java -jar <jar-release-name>.jar`
+1. Run the program using the command `java -jar <release-name>.jar`
 
 ## Setting up in Intellij
 
