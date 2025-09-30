@@ -144,6 +144,10 @@ public class Command {
             }
             break;
 
+        case HELP:
+            printer.showHelp();
+            break;
+
         default:
             throw new InvalidCommandException();
         }

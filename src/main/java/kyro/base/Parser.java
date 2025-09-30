@@ -24,9 +24,15 @@ public class Parser {
 
         switch (command) {
         case "bye":
+            if (parts.length != 1) {
+                throw new KyroException("Kyro thinks you should follow the format: bye");
+            }
             return new Command(CommandList.BYE);
 
         case "list":
+            if (parts.length != 1) {
+                throw new KyroException("Kyro thinks you should follow the format: list");
+            }
             return new Command(CommandList.LIST);
 
         case "mark":
@@ -76,6 +82,12 @@ public class Parser {
                 throw new KyroException("Kyro thinks you should follow the format: find <description>");
             }
             return new Command(CommandList.FIND, parts[1]);
+
+        case "help":
+            if (parts.length != 1) {
+                throw new KyroException("Kyro thinks you should follow the format: help");
+            }
+            return new Command(CommandList.HELP);
 
         default:
             throw new InvalidCommandException();

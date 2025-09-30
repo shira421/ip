@@ -40,6 +40,7 @@ expect to find Java files.
 User Commands
 
    ```
+   ************************* COMMANDS *************************
    todo <description>                                                --> Add a todo Task
    deadline <description> /by <yyyy-MM-dd HHmm>                      --> Add a deadline Task
    event <description> /from <yyyy-MM-dd HHmm> /to <yyyy-MM-dd HHmm> --> Add an event Task
@@ -49,5 +50,6 @@ User Commands
    delete <task number>                                              --> Delete task by number
    filter <yyyy-MM-dd>                                               --> Filter by date
    find <keyword>                                                    --> Find by keyword
+   help                                                              --> Show this help message
    bye                                                               --> End Session
    ```

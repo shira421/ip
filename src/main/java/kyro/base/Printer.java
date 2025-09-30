@@ -23,11 +23,12 @@ public class Printer {
                 + "|      < <   |  |\\_  __ \\/  _ \\ \n"
                 + "|    |  \\ \\___  | |  | \\(  <_> )\n"
                 + "|____|__ \\/ ____| |__|   \\____/ \n"
-                + "        \\/\\/                     \n";
-        System.out.println("Hello from\n" + logo);
+                + "        \\/\\/                     ";
+        System.out.println("************************ HELLO FROM ************************\n" + logo);
         showLine();
         System.out.println(" Hello! I'm Kyro, your personal assistant.");
         System.out.println(" What can Kyro do for you?");
+        showHelp();
         showLine();
     }
 
@@ -70,6 +71,22 @@ public class Printer {
         for (int i = 0; i < matchingTasks.size(); i++) {
             System.out.printf(" %d. %s%n", i + 1, matchingTasks.get(i));
         }
+    }
+
+    public void showHelp() {
+        System.out.println("************************* COMMANDS *************************\n" +
+                "todo <description>                                                --> Add a todo Task\n" +
+                "deadline <description> /by <yyyy-MM-dd HHmm>                      --> Add a deadline Task\n" +
+                "event <description> /from <yyyy-MM-dd HHmm> /to <yyyy-MM-dd HHmm> --> Add an event Task\n" +
+                "list                                                              --> List out all tasks\n" +
+                "mark <task number>                                                --> Mark task by number\n" +
+                "unmark <task number>                                              --> Unmark task by number\n" +
+                "delete <task number>                                              --> Delete task by number\n" +
+                "filter <yyyy-MM-dd>                                               --> Filter by date\n" +
+                "find <keyword>                                                    --> Find by keyword\n" +
+                "help                                                              --> Show this help message\n" +
+                "bye                                                               --> End Session"
+        );
     }
 
     public void showError(String message) {

@@ -7,5 +7,5 @@ package kyro.base;
  * that the user can input.
  */
 public enum CommandList {
-    BYE, LIST, MARK, UNMARK, TODO, DEADLINE, EVENT, DELETE, FILTER, FIND
+    BYE, LIST, MARK, UNMARK, TODO, DEADLINE, EVENT, DELETE, FILTER, FIND, HELP
 }
