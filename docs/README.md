@@ -4,6 +4,8 @@ _Kyro_ is a scheduler and chatbot designed to assist you in your daily life.
 
 Its name is inspired by the Greek word _Kyros_, meaning "master". Given below are instructions on how to use it.
 
+![screenshot](./demo.png)
+
 ## Setting up in Intellij
 
 Prerequisites: JDK 17, update Intellij to the most recent version.
