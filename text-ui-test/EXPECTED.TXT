@@ -1,14 +1,25 @@
-Hello from
- ____  __.
-|    |/ _|___.__._______  ____
-|      < <   |  |\_  __ \/  _ \
+************************ HELLO FROM ************************
+ ____  __.                      
+|    |/ _|___.__._______  ____  
+|      < <   |  |\_  __ \/  _ \ 
 |    |  \ \___  | |  | \(  <_> )
-|____|__ \/ ____| |__|   \____/
-        \/\/
-
+|____|__ \/ ____| |__|   \____/ 
+        \/\/                     
 ____________________________________________________________
  Hello! I'm Kyro, your personal assistant.
  What can Kyro do for you?
+************************* COMMANDS *************************
+todo <description>                                                --> Add a todo Task
+deadline <description> /by <yyyy-MM-dd HHmm>                      --> Add a deadline Task
+event <description> /from <yyyy-MM-dd HHmm> /to <yyyy-MM-dd HHmm> --> Add an event Task
+list                                                              --> List out all tasks
+mark <task number>                                                --> Mark task by number
+unmark <task number>                                              --> Unmark task by number
+delete <task number>                                              --> Delete task by number
+filter <yyyy-MM-dd>                                               --> Filter by date
+find <keyword>                                                    --> Find by keyword
+help                                                              --> Show this help message
+bye                                                               --> End Session
 ____________________________________________________________
 ____________________________________________________________
  Kyro has added:
